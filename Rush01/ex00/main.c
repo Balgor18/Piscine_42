@@ -3,68 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vazra <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/19 14:43:18 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/19 15:24:00 by fcatinau         ###   ########.fr       */
+/*   Created: 2020/09/20 17:17:55 by vazra             #+#    #+#             */
+/*   Updated: 2020/09/20 17:29:01 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "rush01.h"
 
-void	create_tab(int *tab);
-
-int		ft_strlen(char *str)
+int	main(int argc, char **av)
 {
 	int i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	correct_arg(char *str, int *tab, int *nb)
-{
-	int i;
-
-	i = 0;
-	if (ft_strlen(str) != 31)
-		return ;
-	while (str[i] && *nb < 16)
+	i = 1;
+	if (argc != 2 || av[1][31] != '\0')
 	{
-		if ((str[i] >= '1' && str[i] <= '4') && (str[i + 1] == ' '
-					|| str[i + 1] == '\0'))
-		{
-			tab[*nb] = ((str[i] - '0'));
-			*nb += 1;
-			i++;
-		}
-		if (str[i] == ' ')
-			i++;
-		else if (str[i] != 0)
-			return ;
-	}
-}
-
-int		main(int argc, char **argv)
-{
-	int tab[16];
-	int nb;
-	int i;
-
-	i = 0;
-	nb = 0;
-	if (argc == 2)
-	{
-		correct_arg(argv[1], &tab[0], &nb);
-		if (nb == 16)
-			create_tab(tab);
-		else
-			write(1, "Error\n", 6);
-	}
-	else
 		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (av[1][0] > '4' || av[1][0] < '1')
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	while (av[1][i] != '\0')
+	{
+		if (av[1][i] != ' ' || (av[1][i + 1] > '4' || av[1][i + 1] < '1'))
+		{
+			write(1, "Error\n", 6);
+			return (0);
+		}
+		i = i + 2;
+	}
+	ft_fill(av);
 	return (0);
 }
