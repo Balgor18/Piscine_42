@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 17:53:59 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/18 13:12:32 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/21 12:55:27 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int		ft_sqrt(int nb)
 	int i;
 
 	i = 1;
-	while (nb > i * i)
+	while (nb > i * i && i < 46341)
 		i++;
 	if (nb == i * i)
 		return (i);

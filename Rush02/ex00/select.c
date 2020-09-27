@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   select.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 13:27:43 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/21 13:02:48 by fcatinau         ###   ########.fr       */
+/*   Created: 2020/09/26 14:42:34 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/26 18:04:34 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_factorial(int nb)
+#include "rush02.h"
+
+int		count_line(char *str)
 {
-	if (nb < 0)
-		return (0);
-	if (nb >= 1)
-		return (nb * ft_recursive_factorial(nb - 1));
-	else
-		return (1);
+	int		i;
+	int		line;
+
+	line = 0;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			line++;
+		i++;
+	}
+	return (line - 1);
+}
+
+void	select_need(char *arg, char *content)
+{
+	char	*key[count_line(content)];
+	char	*value[count_line(content)];
+
+	ft_split(content, key, value);
 }

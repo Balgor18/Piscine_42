@@ -6,27 +6,81 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 10:17:53 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/24 14:53:15 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/25 12:59:09 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
 
-void	ft_putnbr(long nb, int base, char *basechar)
+char	ft_putnbr(long *nb, long base, char *basechar)
 {
-	char total;
-	if (total = malloc(sizeof(char) * ))
+	char	total;
+	int		mod;
+
+	mod = *nb % base;
+	total = basechar[mod];
+	*nb = *nb / base;
+	return (total);
+}
+
+int		ft_malloc_size(long nb, int size_base)
+{
+	int		i;
+
+	i = 0;
+	if (nb / size_base <= 0)
+		i++;
+	while ((nb = nb / size_base) != 0)
+		i++;
+	return (i);
+}
+
+void	rev_tab(char *tab)
+{
+	char	temp;
+	int		j;
+	int		i;
+
+	i = 0;
+	j = 0;
+	while (tab[j + 1] != '\0')
+	{
+		j++;
+	}
+	if (tab[0] == '-')
+		i++;
+	while (j >= i)
+	{
+		temp = tab[i];
+		tab[i] = tab[j];
+		tab[j] = temp;
+		j--;
+		i++;
+	}
+}
+
+char	*ft_get_all_char(long nb, int size_base, char *basechar)
+{
+	int		i;
+	char	*total;
+	int		malloc_size;
+
+	malloc_size = ft_malloc_size(nb, size_base);
+	i = 0;
+	if (!(total = malloc(sizeof(char) * malloc_size)))
+		return (0);
 	if (nb < 0)
 	{
-		ft_putchar('-');
+		total[i] = '-';
 		nb *= -1;
+		i++;
 	}
-	if (nb < base)
-		ft_putchar(basechar[nb]);
-	else
+	while (malloc_size >= i)
 	{
-		ft_putnbr(nb / base, base, basechar);
-		ft_putnbr(nb % base, base, basechar);
+		total[i] = ft_putnbr(&nb, size_base, basechar);
+		i++;
 	}
+	total[i] = '\0';
+	rev_tab(total);
+	return (total);
 }

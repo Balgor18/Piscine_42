@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 11:13:17 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/17 12:23:59 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/22 15:23:07 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int		ft_iterative_power(int nb, int power)
 {
-	int total;
 	int nbmult;
 
 	nbmult = nb;
 	if (power == 0)
 		return (1);
-	if (power > 1)
+	if (power >= 1)
 	{
 		while (power > 1)
 		{

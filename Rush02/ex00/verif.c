@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   verif.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmalard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 13:27:43 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/21 13:02:48 by fcatinau         ###   ########.fr       */
+/*   Created: 2020/09/26 17:45:35 by cmalard           #+#    #+#             */
+/*   Updated: 2020/09/26 17:45:38 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_factorial(int nb)
+#include "rush02.h"
+
+int		verif_enter(char *str)
 {
-	if (nb < 0)
-		return (0);
-	if (nb >= 1)
-		return (nb * ft_recursive_factorial(nb - 1));
-	else
-		return (1);
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

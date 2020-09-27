@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 13:27:43 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/21 13:02:48 by fcatinau         ###   ########.fr       */
+/*   Created: 2020/09/26 12:08:02 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/26 17:34:03 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_factorial(int nb)
+#include "rush02.h"
+
+void	ft_error(void)
 {
-	if (nb < 0)
-		return (0);
-	if (nb >= 1)
-		return (nb * ft_recursive_factorial(nb - 1));
-	else
-		return (1);
+	ft_putstr("Error\n");
 }

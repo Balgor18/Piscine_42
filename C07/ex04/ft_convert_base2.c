@@ -6,9 +6,13 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 10:17:55 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/24 14:46:57 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/25 12:58:27 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+
+char	*ft_get_all_char(long nb, int size_base, char *basechar);
 
 int		ft_checknum_in_base(char num, char *base)
 {
@@ -18,7 +22,7 @@ int		ft_checknum_in_base(char num, char *base)
 	while (base[i])
 	{
 		if (base[i] == num)
-			return(i);
+			return (i);
 		i++;
 	}
 	return (-1);
@@ -36,16 +40,18 @@ int		ft_check_base(char *base, int size_base)
 				(base[i] < 8 && base[i] < 14) || base[i] == ' ')
 			return (1);
 		j = i + 1;
-		while ( j < size_base )
+		while (j < size_base)
 		{
 			if (base[i] == base[j])
 				return (1);
 			j++;
 		}
 		if (base[i] == base[j])
-				return(1);
+			return (1);
 		i++;
 	}
+	if (i < 2)
+		return (1);
 	return (0);
 }
 
@@ -84,24 +90,23 @@ int		ft_atoi_base(char *str, char *base)
 	i = 0;
 	while (base[i])
 		i++;
-	if (ft_check_base(base, i))
-		return (0);
-	return (ft_atoi(str,i,base));
+	return (ft_atoi(str, i, base));
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int dec;
-	int lento;
-	int lenfrom;
+	long	dec;
+	int		lento;
+	int		lenfrom;
 
+	lento = 0;
+	lenfrom = 0;
 	while (base_to[lento])
 		lento++;
 	while (base_from[lenfrom])
 		lenfrom++;
 	if (ft_check_base(base_from, lenfrom) || ft_check_base(base_to, lento))
 		return (0);
-	dec = ft_atoi_base(nbr,base_from);
-	ft_putnbr(dec, len_base_to, base_to);
-	//return (&test);
+	dec = ft_atoi_base(nbr, base_from);
+	return (ft_get_all_char(dec, lento, base_to));
 }

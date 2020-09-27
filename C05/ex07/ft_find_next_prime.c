@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 13:27:28 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/18 15:54:14 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/21 18:32:22 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ int		ft_is_prime(int nb)
 	return (1);
 }
 
-int ft_find_next_prime(int nb)
+int		ft_find_next_prime(int nb)
 {
-	int i;
-	if(ft_is_prime(nb))
-		return(nb);
+	if (ft_is_prime(nb))
+		return (nb);
+	if (nb <= 2)
+		return (2);
 	while (ft_is_prime(nb) == 0)
 		nb++;
 	return (nb);

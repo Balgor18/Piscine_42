@@ -1,21 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   open.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 13:27:43 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/21 13:02:48 by fcatinau         ###   ########.fr       */
+/*   Created: 2020/09/26 13:30:49 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/26 19:17:35 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_factorial(int nb)
+#include "rush02.h"
+
+int		open_file(char *c)
 {
-	if (nb < 0)
+	int		file;
+
+	file = open(c, O_RDONLY);
+	if (file == -1)
 		return (0);
-	if (nb >= 1)
-		return (nb * ft_recursive_factorial(nb - 1));
-	else
-		return (1);
+	return (file);
+}
+
+char	*read_file(int file)
+{
+	char	buf[4096];
+	char	*dup;
+	int strlenbuf;
+
+	read(file, buf, 4096);
+	strlenbuf = ft_strlen(buf);
+	if (!(dup = malloc(sizeof(*dup) * strlenbuf)))
+		return (0);
+	dup = ft_strdup(buf);
+	close_file(file);
+	return (dup);
+}
+
+void	close_file(int file)
+{
+	close(file);
 }
