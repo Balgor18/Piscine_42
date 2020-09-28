@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 11:58:39 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/27 23:33:07 by cmalard          ###   ########.fr       */
+/*   Created: 2020/09/27 16:51:32 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/27 16:56:05 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
+#ifndef FT_H
+# define FT_H
 
-int		main(int argc, char **argv)
-{
-	int		file;
-	char	*content;
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
-	content = NULL;
-	if (argc > 3)
-		ft_error();
-	if (argc == 2)
-	{
-		if (!verif_enter(argv[1]))
-			ft_error();
-		else
-		{
-			file = open_file("numbers.dict");
-			if ((content = read_file(file)) == 0)
-				return (0);
-		}
-		select_need(argv[1], content);
-	}
-}
+#endif

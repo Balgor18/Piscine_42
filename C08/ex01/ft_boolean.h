@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 11:58:39 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/27 23:33:07 by cmalard          ###   ########.fr       */
+/*   Created: 2020/09/27 16:59:10 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/27 16:59:11 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
+# define EVEN(nbr) ((nbr % 2) == 0)
+# define SUCCESS 0
+# define TRUE 1
+# define FALSE 0
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
 
-int		main(int argc, char **argv)
-{
-	int		file;
-	char	*content;
+typedef int	t_bool;
 
-	content = NULL;
-	if (argc > 3)
-		ft_error();
-	if (argc == 2)
-	{
-		if (!verif_enter(argv[1]))
-			ft_error();
-		else
-		{
-			file = open_file("numbers.dict");
-			if ((content = read_file(file)) == 0)
-				return (0);
-		}
-		select_need(argv[1], content);
-	}
-}
+#endif

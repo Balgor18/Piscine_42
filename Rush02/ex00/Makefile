@@ -1,5 +1,6 @@
+#INCLUDE "rush02.h"
 
-SRCS	= main.c file.c str.c error.c verif.c
+SRCS	= main.c file.c str.c error.c verif.c split.c select.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -10,13 +11,17 @@ RM	= rm -f
 
 CFLAGS	= -Wall -Wextra -Werror
 
-all:
-	${CC} -o ${NAME} ${SRCS}
+${NAME}:	${OBJS}
+		${CC} -o ${NAME} ${SRCS}
+
+all:		${NAME}
 
 clean:
-	${RM} ${OBJS}
+		${RM} ${OBJS}
 
-fclean:	clean
-	${RM} ${NAME}
+fclean:		clean
+		${RM} ${NAME}
 
-re:	fclean all
+re:		fclean all
+
+.PHONY:		all clean fclean re

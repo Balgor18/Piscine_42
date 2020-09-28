@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strdup.c                                           :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/26 11:58:39 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/26 18:12:53 by cmalard          ###   ########.fr       */
+/*   Created: 2020/09/28 18:29:15 by fcatinau          #+#    #+#             */
+/*   Updated: 2020/09/28 18:29:17 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
 
-char	*ft_strdup(char *src)
+#ifndef FT_POINT_H
+# define FT_POINT_H
+
+typedef	struct	t_point
 {
-	char	*dup;
-	int		len_src;
-	int		i;
+	int x;
+	int y;
+};
 
-	i = 0;
-	len_src = ft_strlen(src);
-	if (!(dup = malloc(sizeof(char) * (len_src + 1))))
-		return (0);
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
+/*typedef struct	s_point
+{
+	int x;
+	int y;
+};				t_point;
+*/
+/*typedef struct	s_point
+{
+	int x;
+	int y;
+};				t_point;*/
+#endif

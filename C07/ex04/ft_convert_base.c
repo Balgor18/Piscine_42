@@ -17,9 +17,9 @@ char	ft_putnbr(long *nb, long base, char *basechar)
 	char	total;
 	int		mod;
 
-	mod = *nb % base;
+	mod = nb[0] % base;
 	total = basechar[mod];
-	*nb = *nb / base;
+	nb[0] = nb[0] / base;
 	return (total);
 }
 
@@ -75,11 +75,10 @@ char	*ft_get_all_char(long nb, int size_base, char *basechar)
 		nb *= -1;
 		i++;
 	}
+	if (malloc_size == 1)
+		malloc_size--;
 	while (malloc_size >= i)
-	{
-		total[i] = ft_putnbr(&nb, size_base, basechar);
-		i++;
-	}
+		total[i++] = ft_putnbr(&nb, size_base, basechar);
 	total[i] = '\0';
 	rev_tab(total);
 	return (total);

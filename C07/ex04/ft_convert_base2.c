@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 10:17:55 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/25 12:58:27 by fcatinau         ###   ########.fr       */
+/*   Updated: 2020/09/28 14:54:23 by fcatinau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_check_base(char *base, int size_base)
 	while (base[i])
 	{
 		if (base[i] == '+' || base[i] == '-' ||
-				(base[i] < 8 && base[i] < 14) || base[i] == ' ')
+				(base[i] > 8 && base[i] < 14) || base[i] == ' ')
 			return (1);
 		j = i + 1;
 		while (j < size_base)

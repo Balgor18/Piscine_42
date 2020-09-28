@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 12:04:35 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/26 18:11:50 by cmalard          ###   ########.fr       */
+/*   Updated: 2020/09/27 21:56:09 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,22 @@ int		ft_strlen(char *c)
 	}
 	return (i);
 }
-/*
-int		ft_str_is_alpha(char str)
+
+char	*ft_strdup(char *src)
 {
-	if ((str > 'Z' || str < 'A') && (str > 'z' || str < 'a'))
+	char	*dup;
+	int		len_src;
+	int		i;
+
+	i = 0;
+	len_src = ft_strlen(src);
+	if (!(dup = malloc(sizeof(char) * (len_src + 1))))
 		return (0);
-	return (1);
-}*/
+	while (src[i])
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}

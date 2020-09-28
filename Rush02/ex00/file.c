@@ -6,7 +6,7 @@
 /*   By: fcatinau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 13:30:49 by fcatinau          #+#    #+#             */
-/*   Updated: 2020/09/26 19:17:35 by cmalard          ###   ########.fr       */
+/*   Updated: 2020/09/27 19:35:49 by cmalard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*read_file(int file)
 {
 	char	buf[4096];
 	char	*dup;
-	int strlenbuf;
+	int		strlenbuf;
 
 	read(file, buf, 4096);
 	strlenbuf = ft_strlen(buf);
