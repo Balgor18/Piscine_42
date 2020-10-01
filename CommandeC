@@ -1,6 +1,0 @@
-norminette <fileName>
-gcc <fileName> # Use for compil
-./a.out # If not precise the special name of the file output after compiling
-
-Include
-#include <unistd.h>

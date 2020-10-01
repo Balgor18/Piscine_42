@@ -1,5 +1,0 @@
-Credentials cache: API:22171D26-A344-4668-A7D1-AFCB8F0E3128
-        Principal: fcatinau@42.FR
-
-  Issued                Expires               Principal
-Sep  7 12:04:08 2020  Sep 14 12:03:58 2020  krbtgt/42.FR@42.FR
